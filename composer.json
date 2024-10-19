@@ -1,0 +1,16 @@
+{
+  "name": "ferchupessoadev/spyframe-project",
+  "description": "Spyframe Project Skeleton",
+  "type": "project",
+  "require": {
+    "ferchupessoadev/spyframe": "dev-main"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "config\\": "config/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
