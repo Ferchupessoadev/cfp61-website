@@ -10,10 +10,7 @@
 
 <body>
 	<h1>Hola</h1>
-	<?php if (!empty($_SESSION['sesion'])): ?>
-		<?= $_SESSION['username'] ?>
-
-	<?php endif; ?>
+	<?php print_r($_SESSION['username']); ?>
 </body>
 
 </html>

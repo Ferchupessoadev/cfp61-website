@@ -30,20 +30,21 @@ class LoginController extends Controller
 			return $data;
 		}
 
-		$User = new UserModel();
-		$UserExists = $User->alreadyExists($email, $password);
+		$userModel = new UserModel();
+		$user = $userModel->login($email, $password);
 
-		if ($UserExists['alreadyExists'] === false) {
-			return [
-				"message" => $UserExists['message'],
-				"status" => $UserExists['alreadyExists'],
+		if (!$user['success']) {
+			http_response_code(400);
+			$data = [
+				"message" => $user['message'],
 			];
+
+			return $data;
 		}
 
 		session_regenerate_id(true);
-		$_SESSION['sesion'] = true;
-		$_SESSION['username'] = $UserExists['username'];
-		$_SESSION['email'] = $email;
+		$_SESSION = $user;
+		$_SESSION['login'] = true;
 
 		$this->redirect('/');
 	}

@@ -15,27 +15,29 @@ class UserModel extends Model
 	 * 
 	 * @return array
 	 */
-	public function alreadyExists(string $email, string $password): array
+	public function login(string $email, string $password): array
 	{
-		$user = $this->prepare("SELECT * FROM $this->table WHERE email = ? LIMIT 1", [$email])->get();
+		$user = $this->prepare("SELECT * FROM $this->table WHERE email = ?", [$email])->first();
 
-		if (count($user) === 0) {
+		if (!$user) {
 			http_response_code(400);
 			return [
 				"message" => "Email o contraseña incorrectas",
-				"alreadyExists" => false,
+				"success" => false,
 			];
 		}
 
-		if (password_verify($password, $user['password'])) {
+		if (!password_verify($password, $user['password'])) {
 			http_response_code(400);
 			return [
 				"message" => "Email o contraseña incorrectas",
-				"alreadyExists" => false,
+				"success" => false,
 			];
 		}
 
-		$user['AlreadyExists'] = true;
-		return $user;
+		return [
+			...$user,
+			"success" => true,
+		];
 	}
 }
