@@ -7,8 +7,18 @@ use App\Models\UserModel;
 
 class LoginController extends Controller
 {
+	/**
+	 * Login
+	 *
+	 * @return array
+	 * */
 	public function index(): array
 	{
+		if (empty($_SESSION)) {
+			$this->redirect('/');
+			return [];
+		}
+
 		$email = $this->request['email'];
 		$password = $this->request['password'];
 
