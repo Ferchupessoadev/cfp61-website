@@ -6,10 +6,10 @@
 		alt="Logo del centro de formación profesional de la Criolla">
 	<nav class="flex justify-between items-center px-4">
 		<ul class="flex justify-between items-center gap-10">
-			<li class="border-transparent border-b-2 hover:border-white h-full"><a href="/">Inicio</a></li>
-			<li class="border-transparent border-b-2 hover:border-white h-full"><a href="/quienes-somos">Quienes somos</a></li>
-			<li class="border-transparent border-b-2 hover:border-white h-full"><a href="/trayectos">Trayectos</a></li>
-			<li class="border-transparent border-b-2 hover:border-white h-full"><a href="/contactos">Contacto</a></li>
+			<li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/">Inicio</a></li>
+			<li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/quienes-somos">Quienes somos</a></li>
+			<li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/trayectos">Trayectos</a></li>
+			<li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/contacto">Contacto</a></li>
 		</ul>
 	</nav>
 </header>

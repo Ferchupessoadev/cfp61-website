@@ -12,9 +12,16 @@
 
 <body>
 	<?php include 'partials/header.php'; ?>
-	<?php if (isset($_SESSION['username'])): ?>
-		<?= $_SESSION['username'] ?>
-	<?php endif ?>
+	<section class="flex">
+		<div class="flex flex-col gap-2">
+			<h1 class="text-2xl">Centro de formación profesional</h1>
+			<p>Bienvenidos al CENTRO DE FORMACIÓN PROFESIONAL N° 61, ubicado en La Criolla desde 2014, con un anexo en Colonia Ayuí. Ofrecemos formación profesional y capacitación laboral para una rápida inserción en el mercado local, promoviendo el desarrollo social y profesional.</p>
+		</div>
+		<div>
+			<img src="/img/logo.png" alt="">
+		</div>
+	</section>
+
 </body>
 
 </html>
