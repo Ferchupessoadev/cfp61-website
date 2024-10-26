@@ -13,12 +13,12 @@
 <body>
 	<?php include 'partials/header.php'; ?>
 	<section class="flex">
-		<div class="flex flex-col gap-2">
+		<div class="flex flex-col gap-2 w-1/2">
 			<h1 class="text-2xl">Centro de formación profesional</h1>
 			<p>Bienvenidos al CENTRO DE FORMACIÓN PROFESIONAL N° 61, ubicado en La Criolla desde 2014, con un anexo en Colonia Ayuí. Ofrecemos formación profesional y capacitación laboral para una rápida inserción en el mercado local, promoviendo el desarrollo social y profesional.</p>
 		</div>
-		<div>
-			<img src="/img/logo.png" alt="">
+		<div class="w-1/2">
+			<img class="w-1/2 shadow-2xl" src="/img/logo.png" alt="">
 		</div>
 	</section>
 
