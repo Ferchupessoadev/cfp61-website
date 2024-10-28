@@ -1,15 +1,15 @@
 :root {
-	--bg-background: #fefefe;
-	--bg-primary: #1F254C;
-	--bg-secondary: #c1e7f4;
-	--bg-tertiary: #4090cd;
-	--bg-contrast: #ffff00;
-	--fg-primary: #ffffff;
-	--fg-black: #000000;
+  --bg-background: #fefefe;
+  --bg-background-dark: #131313;
+  --bg-primary: #1f254c;
+  --bg-secondary: #c1e7f4;
+  --bg-tertiary: #4090cd;
+  --bg-contrast: #ffff00;
+  --fg-primary: #ffffff;
+  --fg-black: #000000;
 }
 
-
 body {
-	color: var(--fg-black);
-	background: var(--bg-background);
+  color: var(--fg-primary);
+  background: var(--bg-background-dark);
 }

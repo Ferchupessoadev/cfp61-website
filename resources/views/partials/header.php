@@ -1,5 +1,5 @@
 <header
-	class="flex justify-between items-center h-20 p-2 bg-[linear-gradient(to_bottom,var(--bg-primary),var(--bg-tertiary))]">
+	class="flex justify-between items-center h-16 p-2 bg-[linear-gradient(to_bottom,var(--bg-primary),var(--bg-tertiary))]">
 	<img
 		class="h-full"
 		src="/img/logo.png"
