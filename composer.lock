@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ferchupessoadev/Spyframe.git",
-                "reference": "3a4c492f31c3b213c4a97245cfaf2fa11a31f38c"
+                "reference": "3e49c29b80244e41f261d10518fc09577f744357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ferchupessoadev/Spyframe/zipball/3a4c492f31c3b213c4a97245cfaf2fa11a31f38c",
-                "reference": "3a4c492f31c3b213c4a97245cfaf2fa11a31f38c",
+                "url": "https://api.github.com/repos/Ferchupessoadev/Spyframe/zipball/3e49c29b80244e41f261d10518fc09577f744357",
+                "reference": "3e49c29b80244e41f261d10518fc09577f744357",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                 "issues": "https://github.com/Ferchupessoadev/Spyframe/issues",
                 "source": "https://github.com/Ferchupessoadev/Spyframe/tree/main"
             },
-            "time": "2024-10-18T19:12:45+00:00"
+            "time": "2024-11-04T18:34:01+00:00"
         },
         {
             "name": "graham-campbell/result-type",
