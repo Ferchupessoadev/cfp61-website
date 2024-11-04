@@ -15,10 +15,7 @@
 	<section class="flex">
 		<div class="flex flex-col gap-2 w-1/2">
 			<h1 class="text-2xl">Centro de formación profesional</h1>
-			<p>Bienvenidos al CENTRO DE FORMACIÓN PROFESIONAL N° 61, ubicado en La Criolla desde 2014, con un anexo en Colonia Ayuí. Ofrecemos formación profesional y capacitación laboral para una rápida inserción en el mercado local, promoviendo el desarrollo social y profesional.</p>
-		</div>
-		<div class="w-1/2">
-			<img class="w-1/2 shadow-2xl" src="/img/logo.png" alt="">
+			<p>Centro de Formación Profesional N° 61 – Desde 2014, formando en La Criolla y Colonia Ayuí. Brindamos capacitación laboral y formación profesional de calidad, preparando a nuestros estudiantes para una rápida inserción en el mercado local y promoviendo el desarrollo social y profesional.</p>
 		</div>
 	</section>
 

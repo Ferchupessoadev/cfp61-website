@@ -11,8 +11,8 @@ Route::get('/trayectos', fn() => view::render('trayectos'));
 Route::get('/contacto', fn() => view::render('contacto'));
 
 // Routes for login
-Route::get('/login', fn() => (!$_SESSION) ? view::render('login') : Route::redirect('/admin'));
-Route::get('/admin', fn() => (!$_SESSION) ? Route::redirect('/login') : view::render('admin'));
+Route::get('/login', fn() => (!isset($_SESSION['login'])) ? view::render('login') : Route::redirect('/admin'));
+Route::get('/admin', fn() => (!isset($_SESSION['login'])) ? Route::redirect('/login') : view::render('administrator.dashboard'));
 Route::post('/login', [LoginController::class, 'index']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
