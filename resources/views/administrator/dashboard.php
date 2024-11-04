@@ -8,6 +8,7 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/app.css">
 	<script src="https://cdn.tailwindcss.com"></script>
+	<?php include __DIR__ . '/../partials/head.php'; ?>
 </head>
 
 <body>
