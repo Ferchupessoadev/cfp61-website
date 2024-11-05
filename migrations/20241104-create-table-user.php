@@ -24,9 +24,9 @@ $sql = 'CREATE TABLE IF NOT EXISTS `users` (
 );';
 
 if ($conn->query($sql)) {
-	echo "Table created successfully";
+	echo "Users table created successfully\n";
 } else {
-	echo "Error creating table: " . $conn->error;
+	echo "Error creating table: " . $conn->error . "\n";
 }
 
 // insert admin user.
@@ -36,4 +36,5 @@ if ($stmt = $conn->prepare($sql)) {
 	$password = password_hash($_ENV['ADMIN_PASS'], PASSWORD_BCRYPT);
 	$stmt->bind_param('sss', $_ENV['ADMIN_USER'], $_ENV['ADMIN_EMAIL'], $password);
 	$stmt->execute();
+	echo "Admin user created successfully\n";
 }
