@@ -2,32 +2,48 @@
 
 namespace App\Controllers;
 
+use App\Middlewares\AuthMiddleware;
 use App\Middlewares\LoginMiddleware;
 use App\Models\UserModel;
 
 class LoginController extends Controller
 {
+
+	public function index(): string
+	{
+		$authMiddleware = new AuthMiddleware();
+		$result = $authMiddleware->handle();
+
+		if ($result) {
+			$this->redirect('/admin');
+		}
+
+		return view('login', ["logged" => false]);
+	}
+
 	/**
 	 * Login
 	 * 
 	 * @return array
 	 */
-	public function index(): array
+	public function login(): array
 	{
-		if (!empty($_SESSION)) {
+		$authMiddleware = new AuthMiddleware();
+		$result = $authMiddleware->handle();
+
+		if ($result) {
 			$this->redirect('/admin');
-			return [];
 		}
 
 		$email = $this->request['email'];
 		$password = $this->request['password'];
 
+		// Login middleware. Validate email and password.
 		$LoginMiddleware = new LoginMiddleware();
 		$response = $LoginMiddleware->handle();
 
 		if (!$response['success'])
 			return $response["message"];
-
 
 		$userModel = new UserModel();
 		$user = $userModel->login($email, $password);
@@ -39,12 +55,10 @@ class LoginController extends Controller
 			];
 		}
 
+		// Set session and redirect
 		session_start();
-
 		session_regenerate_id(true);
-
 		$this->setUserSession($user);
-
 		$this->redirect('/admin');
 	}
 
@@ -52,7 +66,7 @@ class LoginController extends Controller
 	 * @param array $user
 	 * @return void
 	 **/
-	public function setUserSession(array $user): void
+	private function setUserSession(array $user): void
 	{
 		$_SESSION['username'] = $user['username'];
 		$_SESSION['id'] = $user['id'];
@@ -60,6 +74,11 @@ class LoginController extends Controller
 		$_SESSION['login'] = true;
 	}
 
+
+	/**
+	 * Logout user
+	 * @return void
+	 */
 	public function logout(): void
 	{
 		session_start();

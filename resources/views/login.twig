@@ -8,10 +8,11 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/app.css">
 	<script src="https://cdn.tailwindcss.com"></script>
+	{% include "partials/head.twig" %}
 </head>
 
 <body class="h-screen">
-	<?php include __DIR__ . '/partials/header.php'; ?>
+	{% include "partials/header.twig" %}
 	<section class="flex flex-col justify-center items-center h-[calc(100vh_-_64px)]">
 		<h1 class="text-3xl">Login</h1>
 		<form class="flex flex-col items-center bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-2/3" action="/login" method="post">

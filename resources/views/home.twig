@@ -8,10 +8,12 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/app.css">
 	<script src="https://cdn.tailwindcss.com"></script>
+	{% include "partials/head.twig" %}
 </head>
 
 <body>
-	<?php include 'partials/header.php'; ?>
+
+	{% include "partials/header.twig" %}
 	<section class="flex">
 		<div class="flex flex-col gap-2 w-1/2">
 			<h1 class="text-2xl">Centro de formación profesional</h1>

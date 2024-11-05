@@ -1,26 +1,20 @@
 <?php
 
+use App\Controllers\DashboardController;
+use App\Controllers\HomeController;
 use App\Controllers\LoginController;
-use App\Middlewares\AuthMiddleware;
 use Spyframe\lib\Route;
-use Spyframe\lib\view;
 
 // static routes.
-Route::get('/', fn() => view::render('home'));
-Route::get('/quienes-somos', fn() => view::render('quienes-somos'));
-Route::get('/trayectos', fn() => view::render('trayectos'));
-Route::get('/contacto', fn() => view::render('contacto'));
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/quienes-somos', [HomeController::class, 'info']);
+Route::get('/trayectos', [HomeController::class, 'trayectos']);
+Route::get('/contacto', [HomeController::class, 'contact']);
 
 // Routes for login
-Route::get('/login', fn() => (!isset($_SESSION['login'])) ? view::render('login') : Route::redirect('/admin'));
-Route::get('/admin', function () {
-	$authMiddleware = new AuthMiddleware();
-	$authMiddleware->handle();
-
-	return view::render('administrator.dashboard');
-});
-
-Route::post('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/admin', [DashboardController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::start();

@@ -2,14 +2,12 @@
 
 namespace App\Middlewares;
 
-use Spyframe\lib\Route;
-
 class AuthMiddleware extends Middleware
 {
 
 	/**
 	 * method handle
-	 * validate if the user is logged in and redirect if not to /login
+	 * validate if the user is logged
 	 * @return bool
 	 */
 	public function handle(): bool
@@ -17,7 +15,6 @@ class AuthMiddleware extends Middleware
 		session_start();
 		if (!isset($_SESSION['login'])) {
 			endSession();
-			Route::redirect('/login');
 			return false;
 		}
 

@@ -3,11 +3,13 @@
   "description": "Spyframe Project Skeleton",
   "type": "project",
   "require": {
-    "ferchupessoadev/spyframe": "dev-main"
+    "ferchupessoadev/spyframe": "dev-main",
+    "twig/twig": "^3.0"
   },
   "autoload": {
     "files": [
-      "helpers/session.php"
+      "helpers/session.php",
+      "helpers/helpers.php"
     ],
     "psr-4": {
       "App\\": "app/",
