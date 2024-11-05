@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\LoginController;
+use App\Middlewares\AuthMiddleware;
 use Spyframe\lib\Route;
 use Spyframe\lib\view;
 
@@ -12,7 +13,13 @@ Route::get('/contacto', fn() => view::render('contacto'));
 
 // Routes for login
 Route::get('/login', fn() => (!isset($_SESSION['login'])) ? view::render('login') : Route::redirect('/admin'));
-Route::get('/admin', fn() => (!isset($_SESSION['login'])) ? Route::redirect('/login') : view::render('administrator.dashboard'));
+Route::get('/admin', function () {
+	$authMiddleware = new AuthMiddleware();
+	$authMiddleware->handle();
+
+	return view::render('administrator.dashboard');
+});
+
 Route::post('/login', [LoginController::class, 'index']);
 Route::get('/logout', [LoginController::class, 'logout']);
 

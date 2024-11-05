@@ -2,13 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Middlewares\LoginMiddleware;
 use App\Models\UserModel;
 
 class LoginController extends Controller
 {
 	/**
 	 * Login
-	 *
+	 * 
 	 * @return array
 	 */
 	public function index(): array
@@ -21,52 +22,51 @@ class LoginController extends Controller
 		$email = $this->request['email'];
 		$password = $this->request['password'];
 
-		if (empty($email) || empty($password)) {
-			http_response_code(400);
-			$data = [
-				'message' => 'El email o contaseña son obligatorios',
-			];
+		$LoginMiddleware = new LoginMiddleware();
+		$response = $LoginMiddleware->handle();
 
-			return $data;
-		}
+		if (!$response['success'])
+			return $response["message"];
 
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			http_response_code(400);
-			$data = [
-				'message' => 'El email o contaseña incorrectas',
-			];
-
-			return $data;
-		}
 
 		$userModel = new UserModel();
 		$user = $userModel->login($email, $password);
 
 		if (!$user['success']) {
 			http_response_code(400);
-			$data = [
+			return [
 				'message' => $user['message'],
 			];
-
-			return $data;
 		}
 
+		session_start();
+
 		session_regenerate_id(true);
-		$_SESSION['username'] = $user['username'];
-		$_SESSION['id'] = $user['id'];
-		$_SESSION['email'] = $user['email'];
-		$_SESSION['login'] = true;
+
+		$this->setUserSession($user);
 
 		$this->redirect('/admin');
 	}
 
+	/**
+	 * @param array $user
+	 * @return void
+	 **/
+	public function setUserSession(array $user): void
+	{
+		$_SESSION['username'] = $user['username'];
+		$_SESSION['id'] = $user['id'];
+		$_SESSION['email'] = $user['email'];
+		$_SESSION['login'] = true;
+	}
+
 	public function logout(): void
 	{
+		session_start();
 		if (!isset($_SESSION['login'])) {
 			$this->redirect('/login');
 		}
-		session_destroy();
-		session_unset();
+		endSession();
 		$this->redirect('/login');
 	}
 }

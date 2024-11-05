@@ -6,6 +6,9 @@
     "ferchupessoadev/spyframe": "dev-main"
   },
   "autoload": {
+    "files": [
+      "helpers/session.php"
+    ],
     "psr-4": {
       "App\\": "app/",
       "config\\": "config/"
