@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "layouts/admin.twig" %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin</title>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="/css/app.css">
-	<script src="https://cdn.tailwindcss.com"></script>
-	{% include "partials/head.twig" %}
-</head>
-<body>
-	{% include "partials/header.twig" %}
-	<h1>Hola admin</h1>
+{% block title %}
+	<title>Dashboard</title>	
+{% endblock %}
 
-</body>
-
-</html>
+{% block content %}
+	<div class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center">
+		<h1 class="text-5xl font-bold">
+			Dashboard
+		</h1>
+	</div>
+{% endblock %}
