@@ -7,6 +7,6 @@ return function (mysqli $conn) {
 		$password = password_hash($_ENV['ADMIN_PASS'], PASSWORD_BCRYPT);
 		$stmt->bind_param('sss', $_ENV['ADMIN_USER'], $_ENV['ADMIN_EMAIL'], $password);
 		$stmt->execute();
-		echo "Admin user created successfully\n";
+		echo " Admin user created successfully\n";
 	}
 };

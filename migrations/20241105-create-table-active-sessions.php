@@ -10,8 +10,8 @@ return function ($conn) {
 )";
 
 	if ($conn->query($sql)) {
-		echo "active_sessions table created successfully\n";
+		echo " active_sessions table created successfully\n";
 	} else {
-		echo "Error creating table: " . $conn->error . "\n";
+		echo " Error creating table: " . $conn->error . "\n";
 	}
 };

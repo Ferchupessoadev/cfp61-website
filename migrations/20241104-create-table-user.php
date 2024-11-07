@@ -13,7 +13,7 @@ return function ($conn) {
 	);';
 
 	if ($conn->query($sql)) {
-		echo "Users table created successfully\n";
+		echo " Users table created successfully\n";
 	} else {
 		echo "Error creating table: " . $conn->error . "\n";
 	}
