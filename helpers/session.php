@@ -23,6 +23,13 @@ if (!function_exists("getSessionId")) {
 	}
 }
 
+if (!function_exists("setSessionId")) {
+	function setSessionId($id)
+	{
+		session_id($id);
+	}
+}
+
 if (!function_exists("setSession")) {
 	function setSession($key, $value)
 	{
