@@ -12,7 +12,7 @@ class AuthMiddleware extends Middleware
 	 */
 	public function handle(): bool
 	{
-		session_start();
+		startSession();
 		if (!isset($_SESSION['login'])) {
 			endSession();
 			return false;

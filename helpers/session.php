@@ -33,6 +33,6 @@ if (!function_exists("setSession")) {
 if (!function_exists("getSession")) {
 	function getSession($key)
 	{
-		return $_SESSION[$key] ?? "La variable de sesión '$key' no existe";
+		return $_SESSION[$key] ?? null;
 	}
 }

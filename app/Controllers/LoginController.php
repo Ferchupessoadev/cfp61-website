@@ -56,7 +56,7 @@ class LoginController extends Controller
 		}
 
 		// Set session and redirect
-		session_start();
+		startSession();
 		session_regenerate_id(true);
 		$this->setUserSession($user);
 		$this->redirect('/admin');
@@ -68,10 +68,10 @@ class LoginController extends Controller
 	 **/
 	private function setUserSession(array $user): void
 	{
-		$_SESSION['username'] = $user['username'];
-		$_SESSION['id'] = $user['id'];
-		$_SESSION['email'] = $user['email'];
-		$_SESSION['login'] = true;
+		setSession('username', $user['username']);
+		setSession('id', $user['id']);
+		setSession('email', $user['email']);
+		setSession('login', true);
 	}
 
 
@@ -82,7 +82,7 @@ class LoginController extends Controller
 	public function logout(): void
 	{
 		session_start();
-		if (!isset($_SESSION['login'])) {
+		if (!getSession('login')) {
 			$this->redirect('/login');
 		}
 		endSession();

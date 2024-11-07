@@ -13,7 +13,7 @@ class LoginMiddleware extends Middleware
 	 */
 	public function handle(): array
 	{
-		if (!isset($_SESSION['login'])) {
+		if (!getSession('login')) {
 			Route::redirect('/login');
 		}
 
