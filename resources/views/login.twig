@@ -1,15 +1,15 @@
-{% extends "layouts/base.twig" %}
+{% extends 'layouts/base.twig' %}
 
 {% block title %}
-	<title>Login</title>
+    <title>Login</title>
 {% endblock %}
 
 {% block content %}
-	<section class="flex flex-col justify-center items-center h-[calc(100vh_-_64px)]">
-		<h1 class="text-3xl">Login</h1>
-		<form class="flex flex-col items-center bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-2/3" action="/login" method="post">
-			<input class="px-4 py-2 mb-4 border-2 w-full" type="email" name="email" placeholder="Correo electronico">
-			<input class="px-4 py-2 mb-4 border-2 w-full" type="password" name="password" placeholder="Contraseña">
-			<input class="px-4 py-2 mb-4 border-2 w-max cursor-pointer hover:bg-gray-100" type="submit" value="Iniciar sesion">
-		</form>
+    <section class="flex flex-col justify-center items-center h-[calc(100vh_-_64px)]">
+        <h1 class="text-3xl">Login</h1>
+        <form class="flex flex-col items-center bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-2/3" action="/login" method="post">
+            <input class="px-4 py-2 mb-4 border-2 w-full" type="email" name="email" placeholder="Correo electronico">
+            <input class="px-4 py-2 mb-4 border-2 w-full" type="password" name="password" placeholder="Contraseña">
+            <input class="px-4 py-2 mb-4 border-2 w-max cursor-pointer hover:bg-gray-100" type="submit" value="Iniciar sesion">
+        </form>
 {% endblock %}
