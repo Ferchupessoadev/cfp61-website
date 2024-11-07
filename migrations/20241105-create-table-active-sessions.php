@@ -6,7 +6,7 @@ return function ($conn) {
     user_id INT NOT NULL,
     last_activity INT,
     is_active BOOLEAN DEFAULT 1,
-	FOREIGN KEY (user_id) REFERENCES users(id)
+	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 )";
 
 	if ($conn->query($sql)) {
