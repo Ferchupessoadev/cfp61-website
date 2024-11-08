@@ -1,8 +1,8 @@
 <?php
 
 ini_set('session.name', 'APPSESSID');
-ini_set('session.gc_maxlifetime', 3600);
-ini_set('session.cookie_lifetime', 3600);
+ini_set('session.gc_maxlifetime', 86400); // 86400 = 1 day;
+ini_set('session.cookie_lifetime', 86400); // 86400 = 1 day;
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 

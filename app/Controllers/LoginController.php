@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Middlewares\AuthMiddleware;
 use App\Middlewares\LoginMiddleware;
+use App\Models\ActiveSessions;
 use App\Models\UserModel;
 
 class LoginController extends Controller
@@ -59,6 +60,17 @@ class LoginController extends Controller
 		startSession();
 		session_regenerate_id(true);
 		$this->setUserSession($user);
+		// create a new active session in the database
+		$ActiveSessions = new ActiveSessions();
+		$ActiveSessions->insert([
+			'session_id' => getSessionId(),
+			'user_id' => $user['id'],
+			'session_data' => serialize(sessions()),
+			'last_activity' => time(),
+			'ip_address' => $_SERVER['REMOTE_ADDR'],
+			'is_active' => 1,
+		]);
+
 		$this->redirect('/admin');
 	}
 
@@ -85,6 +97,8 @@ class LoginController extends Controller
 		if (!getSession('login')) {
 			$this->redirect('/login');
 		}
+		$activeSessions = new ActiveSessions();
+		$activeSessions->deleteBySessionId();
 		endSession();
 		$this->redirect('/login');
 	}
