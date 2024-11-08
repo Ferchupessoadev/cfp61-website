@@ -13,3 +13,10 @@ if (!function_exists('view')) {
 		return $twig->render($view . '.twig', $data);
 	}
 }
+
+if (!function_exists('csrf_token')) {
+	function csrf_token()
+	{
+		return bin2hex(random_bytes(32));
+	}
+}
