@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block content %}
-    <section class="flex flex-col justify-center items-center h-[calc(100vh_-_64px)]">
-        <h1 class="text-3xl">Login</h1>
-        <form class="flex flex-col items-center bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-2/3" action="/login" method="post">
-            <input class="px-4 py-2 mb-4 border-2 w-full" type="email" name="email" placeholder="Correo electronico">
-            <input class="px-4 py-2 mb-4 border-2 w-full" type="password" name="password" placeholder="Contraseña">
-            <input class="px-4 py-2 mb-4 border-2 w-max cursor-pointer hover:bg-gray-100" type="submit" value="Iniciar sesion">
+    <section class="flex flex-col justify-center items-center h-[calc(100vh_-_64px)] bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff)]">
+        <form class="flex flex-col items-center gap-4 bg-[var(--bg-primary)] shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-2/3" action="/login" method="post">
+            <img class="h-16" src="/img/logo.png" alt="Centro de formación profesional de la Criolla">
+            <input class="px-4 py-2 mb-4 w-full border-none outline-none" type="email" name="email" placeholder="Correo electronico">
+            <input class="px-4 py-2 mb-4 w-full border-none outline-none" type="password" name="password" placeholder="Contraseña">
+            <input class="transition duration-300 ease-in-out px-4 py-2 mb-4 border-2 w-max cursor-pointer text-white hover:text-[var(--bg-primary)] hover:bg-gray-100" type="submit" value="Iniciar sesion">
         </form>
 {% endblock %}
