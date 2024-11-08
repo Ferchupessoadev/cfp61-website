@@ -23,6 +23,13 @@ if (!function_exists("getSessionId")) {
 	}
 }
 
+if (!function_exists("sessions")) {
+	function sessions()
+	{
+		return $_SESSION;
+	}
+}
+
 if (!function_exists("setSessionId")) {
 	function setSessionId($id)
 	{
@@ -38,7 +45,7 @@ if (!function_exists("setSession")) {
 }
 
 if (!function_exists("getSession")) {
-	function getSession($key)
+	function getSession($key = null)
 	{
 		return $_SESSION[$key] ?? null;
 	}
