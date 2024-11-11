@@ -36,9 +36,28 @@ export default class Slider {
 		this.btnRight.addEventListener('click', () => this.next());
 
 		// interval
-		setInterval(() => {
+		let interval = setInterval(() => {
 			this.next();
 		}, 5000);
+
+		// stop interval
+		this.slider.addEventListener('mouseenter', () => {
+			clearInterval(interval);
+		});
+
+		this.btnLeft.addEventListener('mouseenter', () => {
+			clearInterval(interval);
+		});
+
+		this.btnRight.addEventListener('mouseenter', () => {
+			clearInterval(interval);
+		});
+
+		this.slider.addEventListener('mouseleave', () => {
+			interval = setInterval(() => {
+				this.next();
+			}, 5000);
+		});
 	}
 
 	next() {
