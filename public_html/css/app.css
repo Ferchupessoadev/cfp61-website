@@ -44,18 +44,20 @@
   font-family: "Roboto";
 }
 
+p,
+a,
+li,
+h3 {
+  color: var(--fg-primary);
+}
+
 :root {
   --bg-background: #fefefe;
   --bg-background-dark: #131313;
-  --bg-primary: #1e73be;
+  --bg-primary: #26a;
   --bg-secondary: #c1e7f4;
-  --bg-tertiary: #1e73aa;
+  --bg-tertiary: #48e;
   --bg-contrast: #ffff00;
   --fg-primary: #ffffff;
   --fg-black: #000000;
-}
-
-body {
-  color: var(--bg-background-dark);
-  background: var(--bg-background);
 }

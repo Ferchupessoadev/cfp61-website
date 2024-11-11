@@ -2,15 +2,58 @@
 
 {% block title %}
     <title>Centro de Formación Profesional N°61</title>
+        <link rel="stylesheet" href="/css/slider.css">
 {% endblock %}
 
 {% block content %}
-    <div class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff)]">
-        <h1 class="text-3xl font-bold">
-            ¡Bienvenido a CFP61!
+<section class="flex bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff)] h-[calc(100vh_-_80px)]">
+    <div class="flex flex-col justify-center w-1/2 h-full px-4">
+        <h1 class="text-3xl font-bold italic text-[var(--bg-primary)]">
+            Centro de Formación Profesional N°61
         </h1>
-        <p>
-            Formamos profesionales para un futuro laboral exitoso, con capacitación práctica y de calidad en La Criolla y Colonia Ayuí
+        <p class="text-md text-black text-justify">
+            Formamos profesionales para un futuro laboral exitoso, con capacitación práctica y de calidad en La Criolla y Colonia Ayuí.
+        </p>
+        <p class="text-md text-black text-justify">
+          La Formación Profesional permite compatibilizar la promoción social, profesional y personal con la productividad de la economía nacional, regional y local.
         </p>
     </div>
+    <div class="flex flex-col items-center justify-center w-1/2 h-full">
+        <img class="h-1/2" src="/img/logo.png" alt="Centro de formación profesional de la Criolla">
+    </div>
+</section>
+<div class="h-[1px] w-full bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff]"></div>
+<section class="flex justify-center items-center h-screen bg-slate-900">
+    <div class="flex flex-col justify-center  gap-4 h-full w-1/2">
+        <h2 class="text-3xl font-bold italic text-[var(--bg-tertiary)] px-8">Objetivos</h2>
+        <p class="text-md text-white px-8">
+            Nuestra oferta busca preparar, actualizar y desarrollar las capacidades de las personas para el mundo del trabajo. Capacitamos en conocimientos específicos, competencias básicas, profesionales y sociales para que jóvenes y adultos/as puedan mejorar sus oportunidades de empleabilidad. La oferta de cursos y trayectos se orienta a temáticas como: Informática, gastronomía, herrería, electricidad, belleza, cosmética, marroquinería, entre otras.
+        </p>
+    </div>
+    <div class="w-1/2 h-full flex flex-col relative">
+        <div class="container-slider">
+          <div id="slider" class="slider" style="width: 400%;">
+            <div class="slider-section">
+              <img class="slider-section__img" src="/static/img1.jpg" alt="" />
+            </div>
+            <div class="slider-section">
+              <img class="slider-section__img" src="/static/img2.jpg" alt="" />
+            </div>
+            <div class="slider-section">
+              <img class="slider-section__img" src="/static/img3.jpg" alt="" />
+            </div>
+            <div class="slider-section">
+              <img class="slider-section__img" src="/static/img4.jpg" alt="" />
+            </div>
+          </div>
+          <div class="slider__btn slider__btn--right" id="btn-right">&#62;</div>
+          <div class="slider__btn slider__btn--left" id="btn-left">&#60;</div>
+        </div>
+        <h3 class="text-3xl font-bold italic text-[var(--bg-tertiary)] absolute bottom-20 px-8">Muestra 2023</h3>
+    </div>
+</section>
+<section class="flex justify-center items-center h-screen bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff]">
+
+</section>
+<script src="/js/app.js" type="module"></script>
 {% endblock %}

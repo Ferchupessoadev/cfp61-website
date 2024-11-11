@@ -1,17 +1,19 @@
 <header
-    class="flex justify-between items-center h-16 p-2 bg-[linear-gradient(to_bottom,var(--bg-primary),var(--bg-tertiary))]">
-    <img
-        class="h-full"
-        src="/img/logo.png"
-        alt="Centro de formación profesional de la Criolla">
+    class="flex justify-between items-center h-20 p-2 bg-slate-900">
+    <div class="flex gap-2 h-20 py-2">
+        <img class="h-full" src="/img/logo.png" alt="Centro de formación profesional de la Criolla">
+        <p class="flex flex-col justify-center items-center text-white">
+          CFP N°61
+        </p>
+    </div>
     <nav class="flex justify-between items-center px-4">
         <ul class="flex justify-between items-center gap-10">
-            <li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/">Inicio</a></li>
-            <li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/quienes-somos">Quienes somos</a></li>
-            <li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/trayectos">Trayectos</a></li>
-            <li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" href="/contacto">Contacto</a></li>
+            <li class="h-full font-semibold group"><a class="transition-colors duration-300 text-white h-full w-full group-hover:text-gray-600" href="/">Inicio</a></li>
+            <li class="h-full font-semibold group"><a class="transition-colors duration-300 text-white h-full w-full group-hover:text-gray-600" href="/quienes-somos">Quienes somos</a></li>
+            <li class="h-full font-semibold group"><a class="transition-colors duration-300 text-white h-full w-full group-hover:text-gray-600" href="/trayectos">Trayectos</a></li>
+            <li class="h-full font-semibold group"><a class="transition-colors duration-300 text-white h-full w-full group-hover:text-gray-600" href="/contacto">Contactanos</a></li>
             {% if logged %}
-                <li class="border-transparent border-b-2 hover:border-white h-full"><i class="fa-solid fa-user"></i></li>
+                <li class="border-transparent border-b-2 hover:border-white h-full">TODO</li>
             {% endif %}
         </ul>
     </nav>
