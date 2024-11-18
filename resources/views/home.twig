@@ -2,7 +2,7 @@
 
 {% block title %}
     <title>Centro de Formación Profesional N°61</title>
-        <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/slider.css">
 {% endblock %}
 
 {% block content %}
@@ -18,26 +18,13 @@
           La Formación Profesional permite compatibilizar la promoción social, profesional y personal con la productividad de la economía nacional, regional y local.
         </p>
 				<div class="flex gap-4">
-					<a href="https://www.instagram.com/cfp61lacriolla/" target="_blank" class="group size-10">
-						<img class="transition duration-300 ease-in-out w-full group-hover:scale-110" src="/img/icons/instagram.svg" alt="Instagram de CFP61">
-					</a>
-					<a href="https://www.facebook.com/cfp61lacriolla/" target="_blank" class="group size-10">
-						<img class="transition duration-300 ease-in-out w-full group-hover:scale-110" src="/img/icons/whatsapp.svg" alt="whatsapp de CFP61">
-					</a>
-					<a href="https://wa.me/">
-						<img class="transition duration-300 ease-in-out w-full group-hover:scale-110" src="/img/icons/facebook.svg" alt="facebook de CFP61">
-					</a>
+					{{ include('components/social.twig') }}
 				</div>
-				<form class="flex mt-4 w-full gap-4">
-					<input type="email" name="email" id="email" placeholder="Correo" class="w-2/3 p-2 text-black outline-none border-2 border-[var(--bg-primary)]">
-					<button type="submit" class="transisiton duration-300 ease-in-out w-1/3 p-2 bg-[var(--fg-primary)] border-2 border-[var(--bg-primary)] hover:bg-[var(--bg-primary)] hover:text-[var(--fg-primary)]">Suscribete!!</button>
-				</form>
     </div>
     <div class="flex flex-col items-center justify-center w-1/2 h-full">
         <img class="h-1/2" src="/img/logo.png" alt="Centro de formación profesional de la Criolla">
     </div>
 </section>
-<div class="h-[1px] w-full bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff]"></div>
 <section class="flex justify-center items-center h-screen bg-slate-900">
     <div class="flex flex-col justify-center  gap-4 h-full w-1/2">
         <h2 class="text-3xl font-bold italic text-[var(--bg-tertiary)] px-8">Objetivos</h2>
@@ -67,10 +54,13 @@
         <h3 class="text-3xl font-bold italic text-[var(--bg-tertiary)] absolute bottom-20 px-8">Muestra 2023</h3>
     </div>
 </section>
-<section class="flex justify-center items-center h-screen bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff]">
-	<h3>Encuentranos</h3>
-	<div>
-		
+<section class="flex flex-col justify-center w-full h-screen bg-[linear-gradient(to_right,#f0f9ff,#a8c0ff)] gap-4">
+	<div class="w-full md:w-1/2 mx-auto">
+		<h3 class="text-3xl font-bold italic text-[var(--bg-primary)]">¿Donde estamos?</h3>
+		<p class="text-black">Rio Bermejo N°278 La Criolla, Dpto Concordia. Instalaciones del Club Juan B. Alberdi.</p>
+		<div class="border-2 border-[var(--bg-primary)] rounded-lg w-max">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d852.5441943552387!2d-58.10742983043457!3d-31.27120505212645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95adecb04d7457bd%3A0x98aa53d46aa8cd3f!2sR%C3%ADo%20Bermejo%2C%20La%20Criolla%2C%20Entre%20R%C3%ADos!5e0!3m2!1ses-419!2sar!4v1731885450764!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
 	</div>
 </section>
 <script src="/js/app.js" type="module"></script>

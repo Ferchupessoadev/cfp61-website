@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Middlewares\AuthMiddleware;
+use App\Services\Mail;
 
 class HomeController extends Controller
 {
@@ -41,5 +42,11 @@ class HomeController extends Controller
 		$result = $authMiddleware->handle();
 
 		return view('contacto', ["logged" => $result]);
+	}
+
+	public function mail(): string
+	{
+		$authMiddleware = new AuthMiddleware();
+		$result = $authMiddleware->handle();
 	}
 }

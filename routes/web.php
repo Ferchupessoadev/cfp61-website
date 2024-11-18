@@ -18,4 +18,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // Routes for admins
 Route::get('/admin', [DashboardController::class, 'index']);
 
+// Mail
+Route::post('/mail', [HomeController::class], 'mail');
+
 Route::start();
