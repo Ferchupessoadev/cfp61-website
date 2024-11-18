@@ -102,4 +102,6 @@ class LoginController extends Controller
 		endSession();
 		$this->redirect('/login');
 	}
+
+	public function resetPassword(): void {}
 }

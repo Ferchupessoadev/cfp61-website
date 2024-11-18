@@ -9,8 +9,11 @@ return function ($conn) {
 	`username` varchar(255) NOT NULL,
 	`email` varchar(255) NOT NULL,
 	`password` varchar(255) NOT NULL,
-	PRIMARY KEY (`id`)
-	);';
+	`token_password` varchar(255) DEFAULT NULL,
+	`token_password_expires` datetime DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `email` (`email`)
+	)';
 
 	if ($conn->query($sql)) {
 		echo " Users table created successfully\n";

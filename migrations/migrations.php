@@ -15,8 +15,9 @@ if ($conn->connect_error) {
 
 echo " Connected successfully\n";
 
-$sql = "CREATE DATABASE IF NOT EXISTS " . $_ENV['DB_NAME'];
+$conn->query("DROP DATABASE IF EXISTS " . $_ENV['DB_NAME']);
 
+$sql = "CREATE DATABASE IF NOT EXISTS " . $_ENV['DB_NAME'];
 
 
 if ($conn->query($sql)) {
@@ -36,9 +37,9 @@ foreach ($migrations as $migration) {
 
 	$migrate = require $migrationsDir . '/' . $migration;
 
-	if (is_callable($migrate)) {
+	try {
 		$migrate($conn);
-	} else {
-		echo " Error: El archivo de migración '$migration' no retorna una función válida.\n";
+	} catch (Exception $e) {
+		echo " " . $migration . " failed: " . $e->getMessage() . "\n";
 	}
 }
