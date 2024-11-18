@@ -12,11 +12,13 @@ class ContactForm
 	 **/
 	public static function validate(array $request): array
 	{
-		[$to, $subject, $body] = $request;
+		$to = $request['to'];
+		$subject = $request['subject'];
+		$message = $request['message'];
 
 		$to = trim($to);
 		$subject = trim($subject);
-		$body = trim($body);
+		$message = trim($message);
 
 		$response = [
 			'success' => true,
@@ -25,7 +27,7 @@ class ContactForm
 			'data' => [
 				'to' => $to,
 				'subject' => $subject,
-				'body' => $body,
+				'body' => $message,
 			]
 		];
 
@@ -36,7 +38,7 @@ class ContactForm
 		if (empty($subject)) {
 			$response['errors'][] = "Asunto no válido";
 		}
-		if (empty($body)) {
+		if (empty($message)) {
 			$response['errors'][] = "Cuerpo del correo no válido";
 		}
 

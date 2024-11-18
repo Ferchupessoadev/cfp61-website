@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Middlewares\AuthMiddleware;
 use App\Services\Mail;
+use App\Validations\ContactForm;
 
 class HomeController extends Controller
 {
@@ -44,9 +45,29 @@ class HomeController extends Controller
 		return view('contacto', ["logged" => $result]);
 	}
 
-	public function mail(): string
+	/**
+	 * method mail.
+	 *
+	 * @return array
+	 */
+	public function mail(): array|string
 	{
-		$authMiddleware = new AuthMiddleware();
-		$result = $authMiddleware->handle();
+		$isValid = ContactForm::validate($this->request);
+		if (!$isValid['success']) {
+			return $isValid;
+		}
+
+		$to = $this->request['to'];
+		$subject = $this->request['subject'];
+		$message = $this->request['message'];
+
+
+		$to = htmlspecialchars($to);
+		$subject = htmlspecialchars($subject);
+		$message = htmlspecialchars($message);
+
+		$response = Mail::send($to, $subject, $message);
+
+		return $response;
 	}
 }

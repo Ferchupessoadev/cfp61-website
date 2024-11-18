@@ -21,7 +21,7 @@ class Mail
 		$mail->Username = $_ENV['MAIL_USER'];                         // SMTP username
 		$mail->Password = $_ENV['MAIL_PASS'];                         // SMTP password
 		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;              // Enable implicit TLS encryption
-		$mail->Port = $_ENV['SMTP_PORT'];                             // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+		$mail->Port = $_ENV['MAIL_PORT'];                             // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 		$mail->CharSet = 'UTF-8';                                     // Set the charset
 		$mail->setFrom($_ENV['MAIL_USER'], $_ENV['MAIL_NAME']);        // Set who the message is to be sent from
 	}
@@ -43,7 +43,7 @@ class Mail
 			self::configureMailer($mail);
 
 			// Recipients
-			$mail->addAddress($to);
+			$mail->addAddress($_ENV['MAIL_RECEIVER'], $_ENV['MAIL_NAME_RECEIVER']);     // Add a recipient
 
 			// Content
 			$mail->isHTML(true);
