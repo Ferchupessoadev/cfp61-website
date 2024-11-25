@@ -46,7 +46,7 @@ class Mail
             // Content
             $mail->isHTML(true);
             $mail->Subject = $subject;
-            $mail->Body = $body;
+            $mail->Body = 'Email: ' . $to . '<br>' . $body;
 
             // Send email
             $mail->send();

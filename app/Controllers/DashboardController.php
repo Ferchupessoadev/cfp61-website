@@ -4,67 +4,66 @@ namespace App\Controllers;
 
 use App\Middlewares\AuthMiddleware;
 use App\Models\CoursesModel;
-use App\Validations\Courses;
-use Spyframe\lib\Route;
 
 class DashboardController extends Controller
 {
-	public function index(): string
-	{
-		$authMiddleware = new AuthMiddleware();
-		$result = $authMiddleware->handle();
+    public function index(): string
+    {
+        $authMiddleware = new AuthMiddleware();
+        $result = $authMiddleware->handle();
 
-		if (!$result) {
-			Route::redirect('/login');
-		}
+        if (!$result['success']) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+            return view('unauthorized', ['message' => 'que tamo haciendo, no estas autorizado para entrar aquí', 'ip' => $ip]);
+        }
 
-		return view('administrator.dashboard', ["logged" => $result]);
-	}
+        return view('administrator.dashboard', ['logged' => $result, 'user' => [
+            'name' => getSession('username'),
+            'email' => getSession('email')
+        ]]);
+    }
 
-	public function getCourses(): array
-	{
-		$model = new CoursesModel();
+    public function multimedia(): string
+    {
+        $authMiddleware = new AuthMiddleware();
+        $result = $authMiddleware->handle();
 
-		return $model->all();
-	}
+        if (!$result['success']) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+            return view('unauthorized', ['message' => 'que tamo haciendo, no estas autorizado para entrar aquí', 'ip' => $ip]);
+        }
 
-	public function setCourse(): array
-	{
-		$name = $this->request['name'];
-		$description = $this->request['description'];
-		$image = $this->request['image'];
-		$content = $this->request['content'];
+        $directoryPath = __DIR__ . '/../../public_html/multimedia';
 
-		$model = new CoursesModel();
-		$validation = Courses::validate($name, $description, $image, $content);
-		if (!$validation['success']) {
-			http_response_code(400);
-			return $validation['errors'];
-		}
+        $files = scandir($directoryPath);
 
-		$model->name = $name;
-		$model->description = $description;
-		$model->image = $image;
-		$model->content = $content;
-		$model->save();
+        $files = array_diff($files, array('.', '..'));
 
-		if (!$model->success) {
-			http_response_code(500);
-			return [
-				"success" => false,
-				"message" => "Error al crear el curso",
-			];
-		}
+        return view('administrator.multimedia', ['logged' => $result, 'user' => [
+            'name' => getSession('username'),
+            'email' => getSession('email'),
+            'csrf_token' => getSession('csrf_token')
+        ], 'files' => $files]);
+    }
 
-		return [
-			"success" => true,
-			"message" => "Curso creado exitosamente",
-			"data" => [
-				'name' => $model->name,
-				'description' => $model->description,
-				'image' => $model->image,
-				'content' => $model->content
-			]
-		];
-	}
+    public function trayectos(): string
+    {
+        $authMiddleware = new AuthMiddleware();
+        $result = $authMiddleware->handle();
+
+        if (!$result['success']) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+            return view('unauthorized', ['message' => 'que tamo haciendo, no estas autorizado para entrar Sharia', 'ip' => $ip]);
+        }
+
+        $coursesModel = new CoursesModel();
+
+        $courses = $coursesModel->all();
+
+        return view('administrator.trayectos', ['logged' => $result, 'user' => [
+            'name' => getSession('username'),
+            'email' => getSession('email'),
+            'courses' => $courses
+        ]]);
+    }
 }

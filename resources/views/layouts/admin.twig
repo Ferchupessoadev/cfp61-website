@@ -13,11 +13,20 @@
 
     {% endblock %}
 </head>
-<body>
+<body class="relative">
+		<div class="hidden w-max items-center justify-center absolute top-10 right-4 border text-green-700 px-4 py-2 rounded z-50 gap-4" id="alerts">
+			<p id="alerts__message" class="font-bold text-black"></p>	
+			<button id="alerts__close" class="text-black font-bold cursor-pointer text-2xl">
+				<i class="fa-solid fa-x"></i>
+			</button>
+		</div>
     {{ include('components/header_admin.twig') }}
-    {% block content %}
+		<div class="w-[100%] position-relative pl-52 pt-10">
+			{% block content %}
 
-    {% endblock %}
+			{% endblock %}
+		</div>
+		<!-- Alerts -->
     <script src="/js/main.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{% extends 'layouts/base.twig' %}
+
+
+{% block title %}
+    <title>Centro de Formación Profesional N°61</title>
+{% endblock %}
+
+{% block content %}
+	<section class="flex flex-col justify-center items-center h-screen">
+		<h1 class="text-2xl">{{ message }}</h1>	
+		<a class="mt-4 text-blue-500 hover:underline" href="/">Volver al inicio</a>
+		<p class="text-black">IP de conexion: {{ ip }}</p>
+	</section>
+{% endblock %}

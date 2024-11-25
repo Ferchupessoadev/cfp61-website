@@ -4,24 +4,30 @@ namespace App\Middlewares;
 
 class AuthMiddleware extends Middleware
 {
+    /**
+     * method handle
+     * validate if the user is logged
+     * @param array $arguments
+     * @return array
+     */
+    public function handle(array $arguments = []): array
+    {
+        startSession();
+        if (!isset($_SESSION['login'])) {
+            endSession();
+            return [
+                'success' => false,
+                'message' => 'You are not logged in'
+            ];
+        }
 
-	/**
-	 * method handle
-	 * validate if the user is logged
-	 * @return bool
-	 */
-	public function handle(): bool
-	{
-		startSession();
-		if (!isset($_SESSION['login'])) {
-			endSession();
-			return false;
-		}
+        if ($this->next) {
+            return $this->next->handle();
+        }
 
-		if ($this->next) {
-			return $this->next->handle();
-		}
-
-		return true;
-	}
+        return [
+            'success' => true,
+            'message' => 'You are logged in'
+        ];
+    }
 }

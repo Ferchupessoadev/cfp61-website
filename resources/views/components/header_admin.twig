@@ -1,22 +1,29 @@
 <header
-    class="flex justify-between items-center h-16 p-2 bg-slate-900">
-    <img
+    class="flex justify-between items-center h-10 p-2 bg-slate-950 fixed top-0 left-0 right-0 z-20">
+		<div class="flex items-center gap-8 h-full">
+			<img
         class="h-full"
         src="/img/logo.png"
-        alt="Centro de formación profesional de la Criolla">
+        alt="Centro de formación profesional de la Criolla"
+			>
+			<a href="/" class="group" target="_blank">
+				<i class="fa-solid fa-home text-white"></i> 
+				<span class="text-white group-hover:underline">Home - CFP61</span>
+			</a>
+		</div>
     <nav class="flex justify-between items-center px-4">
         <ul class="flex justify-between items-center gap-10">
-            <li class="border-transparent border-b-2 hover:border-white h-full"><a class="text-white" target="_blank" href="/">Sitio</a></li>
             {% if logged %}
                 <li
                     id="btn-user-dropdown"
                     class="border-transparent relative border-b-2 h-full hover:bg-[rgba(255,255,255,0.1)] px-4 py-2 rounded-xl cursor-pointer group"
                     >
+										<span class="text-white group-hover:text-[var(--bg-primary)]">Hola, {{ user.name }} </span>
                     <i class="fa-solid fa-user text-white"></i>
                     <ul id="user-dropdown" class="absolute right-0 top-[100%] bg-[var(--bg-primary)] hidden h-max w-max px-4 py-2">
                         <li><a href="/logout" class="text-white">Cerrar sesion</a></li>
                     </ul>
-                    </li>
+                  </li>
             {% endif %}
         </ul>
     </nav>

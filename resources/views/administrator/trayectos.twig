@@ -1,0 +1,30 @@
+{% extends 'layouts/admin.twig' %}
+
+{% block title %}
+    <title>CFP61 - Trayectos</title>
+{% endblock %}
+
+{% block content %}
+		{% include "components/sidebar.twig" %}
+			<div class="w-[100%] bg-gray-100 min-h-screen flex flex-col">
+				<div class="flex gap-4 items-center">
+					<h2 class="text-black text-3xl p-4">Trayectos</h2>
+					<button id="addTrayecto" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar trayecto</button>
+				</div>
+				<form class="hidden flex-col items-center gap-4" id="addTrayectoForm">
+					<input autocomplete="off" class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text" name="name" id="name" placeholder="Nombre del trayecto">
+					<textarea  autocomplete="off" class="resize-none border-2 border-gray-300 w-full bg-white h-52 pt-4 px-5 pr-16 rounded-lg text-sm focus:outline-none" name="description" id="description" placeholder="Descripción"></textarea>
+					<input  type="hidden" name="csrf_token" id="csrf" value="{{ user.csrf_token }}">
+					<button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max">Selecionar imagen de muestra</button>
+					<img src="/multimedia/Vimix-night.png" class="size-32 object-cover">
+					<textarea autocomplete="off" name="content" id="content" placeholder="Contenido" class="w-full border-2 border-gray-300 bg-white h-52 pt-4 px-5 pr-16 rounded-lg text-sm focus:outline-none"></textarea>
+					<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max">Publicar</button>
+				</form>
+				{% for course in courses %}
+					
+				{% else %}
+					<h2 class="text-black text-3xl p-4">No hay trayectos añadidos</h2>
+				{% endfor %}
+			</div>
+			<script src="/js/dashboard/trayectos.js" type="module"></script>
+{% endblock %}

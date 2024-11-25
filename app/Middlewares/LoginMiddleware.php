@@ -6,43 +6,43 @@ use Spyframe\lib\Route;
 
 class LoginMiddleware extends Middleware
 {
+    /**
+     * method handle
+     * @param array $arguments
+     * @return array
+     */
+    public function handle(array $arguments = []): array
+    {
+        if (!getSession('login')) {
+            Route::redirect('/login');
+        }
 
-	/**
-	 * method handle
-	 * @return array
-	 */
-	public function handle(): array
-	{
-		if (!getSession('login')) {
-			Route::redirect('/login');
-		}
+        $email = $this->request['email'];
+        $password = $this->request['password'];
 
-		$email = $this->request['email'];
-		$password = $this->request['password'];
+        if (empty($email) || empty($password)) {
+            http_response_code(400);
+            $data = [
+                'success' => false,
+                'message' => 'El email y la contaseña son obligatorios',
+            ];
 
-		if (empty($email) || empty($password)) {
-			http_response_code(400);
-			$data = [
-				"success" => false,
-				'message' => 'El email y la contaseña son obligatorios',
-			];
+            return $data;
+        }
 
-			return $data;
-		}
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            http_response_code(400);
+            $data = [
+                'success' => false,
+                'message' => 'El email o contaseña incorrecta',
+            ];
 
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			http_response_code(400);
-			$data = [
-				"success" => false,
-				'message' => 'El email o contaseña incorrecta',
-			];
+            return $data;
+        }
 
-			return $data;
-		}
-
-		return [
-			"success" => true,
-			"data" => [],
-		];
-	}
+        return [
+            'success' => true,
+            'data' => [],
+        ];
+    }
 }

@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center">
-        <h1 class="text-5xl font-bold">
-            Dashboard
-        </h1>
-    </div>
+		{% include "components/sidebar.twig" %}
+			<div class="w-[100%] bg-gray-100 min-h-screen flex flex-col p-2">
+				<div class="bg-slate-900 w-full h-max flex flex-col gap-4">
+					<p class="text-3xl p-4 text-white">Bienvenido al panel de administración <span class="text-gray-400 text-sm">By Ferchudev</span></p>
+				</div>
+			</div>
 {% endblock %}

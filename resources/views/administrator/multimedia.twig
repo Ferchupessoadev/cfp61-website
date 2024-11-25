@@ -1,0 +1,38 @@
+{% extends 'layouts/admin.twig' %}
+
+{% block title %}
+    <title>CFP61 - Multimedia</title>
+{% endblock %}
+
+{% block content %}
+		{% include "components/sidebar.twig" %}
+			<div class="w-[100%] bg-gray-100 min-h-screen flex flex-col">
+				<div class="flex gap-4 items-center">
+					<h2 class="text-3xl p-4">Biblioteca de Multimedia</h2>
+					<button id="addMultimedia" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar nuevo archivo multimedia</button>
+				</div>
+				<form class="hidden border-2 border-dashed border-gray-400 p-4 flex flex-col items-center" id="addMultimediaForm">
+					<p class="text-black">Arrastra los archivos aqui</p>
+					<p class="text-black">o</p>
+					<input class="hidden" type="file" name="file[]" id="multimedia" multiple>
+					<input type="hidden" name="csrf_token" id="csrf" value="{{ user.csrf_token }}">
+					<label for="multimedia" class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Seleccionar archivos</label>
+					<p class="text-black">Tamaño máximo: 5MB</p>
+					<button type="submit"></button>
+				</form>
+				<div id="files" class="flex gap-2 m-2 p-4 flex-wrap min-h-screen">
+					{% for file in files %}
+						<div class="w-max h-max relative group z-1">
+							<div class="absolute w-full h-full bg-[rgba(0,0,0,0.5)] hidden group-hover:flex flex-col items-center justify-center">
+								<button class="text-white text-2xl cursor-pointer btn-delete-file"><i class="fa-solid fa-trash"></i></button>
+							</div>
+							<img src="/multimedia/{{ file }}" alt="" class="size-32 object-cover">
+						</div>
+					{% else %}
+						<h3 class="text-black text-2xl">No hay archivos</h3>
+					{% endfor %}
+				</div>
+			</div>
+			<div>Hecho con ❤️ por <a href="https://ferchudev.com" class="text-blue-500 hover:underline" target="_blank">Ferchudev</a></div>
+			<script src="/js/dashboard/multimedia.js" type="module"></script>
+{% endblock %}

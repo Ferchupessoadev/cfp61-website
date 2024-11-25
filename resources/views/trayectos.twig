@@ -10,4 +10,9 @@
             Trayectos
         </h1>
     </div>
+		{% for course in courses %}
+			<p>{{ course.name }}</p>	
+		{% else %}
+			
+		{% endfor %}
 {% endblock %}

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>404 - Not Found</title>
+	<title>CFP N°61 - Página no encontrada</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="/css/app.css">
 </head>
@@ -32,7 +32,7 @@
 			<img class="h-64" src="/img/logo.png" alt="">
 		</div>
 		<div class="flex flex-col justify-center items-center gap-2 w-1/2">
-			<h2 class="text-4xl font-bold text-[var(--bg-primary)]">404 - Not Found</h2>
+			<h2 class="text-4xl font-bold text-[var(--bg-primary)]">¡Me estas matando!</h2>
 			<p class="text-2xl font-bold text-black">Página no encontrada</p>
 			<a href="/" class="text-md font-bold text-[var(--bg-primary)] underline">Volver a la página principal</a>
 		</div>
