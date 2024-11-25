@@ -6,7 +6,7 @@
 
 {% block content %}
 		{% include "components/sidebar.twig" %}
-			<div class="w-[100%] bg-gray-100 min-h-screen flex flex-col">
+			<div class="w-[100%] bg-gray-100 min-h-screen flex flex-col px-4">
 				<div class="flex gap-4 items-center">
 					<h2 class="text-black text-3xl p-4">Trayectos</h2>
 					<button id="addTrayecto" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar trayecto</button>
@@ -20,11 +20,15 @@
 					<textarea autocomplete="off" name="content" id="content" placeholder="Contenido" class="w-full border-2 border-gray-300 bg-white h-52 pt-4 px-5 pr-16 rounded-lg text-sm focus:outline-none"></textarea>
 					<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max">Publicar</button>
 				</form>
+				<div class="flex flex-col w-full border-2 border-gray-300 p-4">
 				{% for course in courses %}
-					
+					<div class="flex gap-4 items-center">
+						{{ course.name }}
+					</div>
 				{% else %}
 					<h2 class="text-black text-3xl p-4">No hay trayectos añadidos</h2>
 				{% endfor %}
+				</div>
 			</div>
 			<script src="/js/dashboard/trayectos.js" type="module"></script>
 {% endblock %}

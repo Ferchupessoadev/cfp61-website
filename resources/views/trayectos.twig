@@ -1,18 +1,31 @@
 {% extends 'layouts/base.twig' %}
 
 {% block title %}
-    <title>Trayectos</title>
+    <title>CFP61 - Trayectos</title>
 {% endblock %}
 
 {% block content %}
     <div class="flex flex-col items-center justify-center min-h-[calc(100vh-64px)]">
-        <h1 class="text-5xl font-bold">
+        <h1 class="text-3xl font-bold">
             Trayectos
         </h1>
-    </div>
-		{% for course in courses %}
-			<p>{{ course.name }}</p>	
-		{% else %}
+				<div class="flex flex-col gap-4 p-10">
+					{% for course in courses %}
+						<div class="flex flex-row gap-4 h-[300px] bg-gray-300 p-4">
+							<img class="w-1/3 h-auto object-cover" src="{{ course.image }}" alt="{{ course.name }}">
+							<div class="flex flex-col">
+								<h2 class="text-2xl font-bold">
+									{{ course.name }}
+								</h2>
+								<p class="text-lg text-black">
+									{{ course.description }}
+								</p>
+								<a class="text-white bg-blue-700 w-max hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-auto" href="/trayectos/{{ course.name }}">Leer más</a>
+							</div>
+						</div>
+					{% else %}
 			
-		{% endfor %}
+					{% endfor %}
+				</div>
+    </div>
 {% endblock %}

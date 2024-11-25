@@ -58,12 +58,12 @@ class DashboardController extends Controller
 
         $coursesModel = new CoursesModel();
 
-        $courses = $coursesModel->all();
+        $result = $coursesModel->all();
 
         return view('administrator.trayectos', ['logged' => $result, 'user' => [
             'name' => getSession('username'),
             'email' => getSession('email'),
-            'courses' => $courses
-        ]]);
+        ],
+            'courses' => $result]);
     }
 }

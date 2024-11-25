@@ -38,7 +38,7 @@ class CoursesController extends Controller
 
         $name = $this->request['name'];
         $description = $this->request['description'];
-        $image = $this->request['image'];
+        $image = $this->request['image'];  // url. No es un archivo, los archivos se cargan en /admin/multimedia
         $content = $this->request['content'];
 
         $model = new CoursesModel();

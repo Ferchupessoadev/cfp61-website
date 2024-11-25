@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\CoursesController;
 use App\Controllers\DashboardController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
@@ -22,8 +23,8 @@ Route::get('/admin/multimedia', [DashboardController::class, 'multimedia']);
 Route::get('/admin/trayectos', [DashboardController::class, 'trayectos']);
 Route::post('/api/multimedia/upload', [MultimediaController::class, 'uploadMultimedia']);
 Route::post('/api/multimedia/delete', [MultimediaController::class, 'deleteMultimedia']);
+Route::get('/api/courses/', [CoursesController::class, 'getCourses']);
 // Route::get('/api/users/', [DashboardController::class, 'getUsers']);
-// Route::get('/api/courses/', [DashboardController::class, 'getCourses']);
 // Route::post('/api/courses/', [DashboardController::class, 'setCourse']);
 
 // Mail
