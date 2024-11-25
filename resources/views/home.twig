@@ -20,6 +20,9 @@
 				<div class="flex gap-4">
 					{{ include('components/social.twig') }}
 				</div>
+				{% if status_inscription %}
+					<a class="bg-blue-500 w-max hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" href="/preinscripcion">pre inscripción {{ 'now'|date('Y') }}</a>
+				{% endif %}
     </div>
     <div class="flex flex-col items-center justify-center w-[200px] md:w-1/2 h-full">
         <img class="h-1/2" src="/img/logo.png" alt="Centro de formación profesional de la Criolla">
