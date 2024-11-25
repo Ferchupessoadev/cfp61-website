@@ -1,0 +1,25 @@
+{% extends "layouts/base.twig" %}
+
+{% block title %}
+	<title>CFP61 - Prescripción</title>
+{% endblock %}
+
+{% block content %}
+	<section class="flex flex-col h-screen p-10">
+		<h1 class="text-2xl font-bold italic text-[var(--bg-primary)]">Preinscripción</h1>
+		<p class="text-black text-md">Estan abiertas las preinscripciones!!!</p>
+		<form class="flex flex-col gap-5" method="post">
+			<input class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text" name="name" placeholder="Nombre">
+			<input class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="email" name="email" placeholder="Correo electronico">
+			<input class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text" name="phone" placeholder="Telefono">
+			<input class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text" name="dni" placeholder="DNI: xxx.xxx.xxx">
+			<input class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text" name="address" placeholder="Domicilio(opcional)">
+			<select class="border-2 border-gray-300 w-full bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" name="course" id="course">
+				{% for course in courses %}
+					<option value="{{ course.id }}">{{ course.name }}</option>
+				{% endfor %}
+			</select>
+			<input class="transition duration-300 ease-in-out rounded-md bg-blue-600 px-4 py-2 mb-4 border-2 w-max cursor-pointer text-white hover:text-slate-900 hover:bg-gray-100" type="submit" value="Enviar">
+		</form>
+	</section>
+{% endblock %}

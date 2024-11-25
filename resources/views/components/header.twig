@@ -17,4 +17,26 @@
             {% endif %}
         </ul>
     </nav>
+		<button id="menu-btn" class="flex flex-col justify-center items-center md:hidden outline-none focus:outline-none">
+			<i class="fa-solid fa-bars text-white text-3xl"></i>
+    </button>
+		<nav id="nav-responsive" class="transition-all duration-500 -translate-x-full w-full h-[calc(100vh-72px)] md:hidden flex flex-col justify-center items-center gap-10 text-white bg-[#222] bg-slate-900 fixed bottom-0 left-0 z-10">
+			<ul class="flex flex-col justify-center gap-10 w-full px-4">
+				<li class="flex font-semibold group"><a class="transition-colors duration-300 px-4 py-2 text-white w-full group-hover:bg-transparent rounded group-active:bg-gray-600" href="/">Inicio</a></li>
+				<li class="flex font-semibold group"><a class="transition-colors duration-300 px-4 py-2 text-white w-full group-hover:bg-transparent rounded group-active:bg-gray-600" href="/quienes-somos">Quienes somos</a></li>
+				<li class="flex font-semibold group"><a class="transition-colors duration-300 px-4 py-2 text-white w-full group-hover:bg-transparent rounded group-active:bg-gray-600" href="/trayectos">Trayectos</a></li>
+				<li class="flex font-semibold group"><a class="transition-colors duration-300 px-4 py-2 text-white w-full group-hover:bg-transparent rounded group-active:bg-gray-600" href="/contacto">Contactanos</a></li>
+				{% if logged %}
+					<li class="flex font-semibold group"><a class="transition-colors duration-300 px-4 py-2 text-white w-full group-hover:bg-gray-600 rounded" href="/panel">panel</a></li>
+				{% endif %}
+		</nav>
 </header>
+
+<script>
+	const menu = document.querySelector('#menu-btn');
+	const nav = document.querySelector('#nav-responsive');
+
+	menu.addEventListener('click', () => {
+		nav.classList.toggle('-translate-x-full');
+	});
+</script>

@@ -73,4 +73,15 @@ class HomeController extends Controller
 
         return $response;
     }
+
+    public function preinscription(): string
+    {
+        $authMiddleware = new AuthMiddleware();
+        $result = $authMiddleware->handle();
+
+        $coursesModel = new CoursesModel();
+        $courses = $coursesModel->all();
+
+        return view('preinscription', ['logged' => $result['success'], 'courses' => $courses]);
+    }
 }

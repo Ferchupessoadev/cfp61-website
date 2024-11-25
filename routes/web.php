@@ -11,6 +11,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/quienes-somos', [HomeController::class, 'info']);
 Route::get('/trayectos', [HomeController::class, 'trayectos']);
 Route::get('/contacto', [HomeController::class, 'contact']);
+Route::get('/preinscripcion', [HomeController::class, 'preinscription']);
 
 // Routes for login
 Route::get('/login', [LoginController::class, 'index']);
