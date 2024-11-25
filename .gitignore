@@ -1,3 +1,4 @@
 vendor/
 .env
 .twig-cs-fixer.cache
+public_html/multimedia/
