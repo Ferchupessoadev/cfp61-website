@@ -15,22 +15,24 @@
         <div class="flex-1 flex flex-col items-center">
 						<h3 class="text-gray-500">Legal</h3>
             <ul>
-                <li><a href="/policy">Política de privacidad</a></li>
-                <li><a href="/legal">Términos y condiciones</a></li>
+                <li class="text-sm"><a href="/policy">Política de privacidad</a></li>
+                <li class="text-sm"><a href="/legal">Términos y condiciones</a></li>
             </ul>
         </div>
         <div class="flex-1 flex flex-col items-center">
 					<h3 class="text-gray-500">Información</h3>
             <ul>
-                <li><a href="/faq">Preguntas frecuentes</a></li>
-                <li><a href="/contacto">Contacto</a></li>
+                <li class="text-sm"><a href="/faq">Preguntas frecuentes</a></li>
+                <li class="text-sm"><a href="/contacto">Contacto</a></li>
             </ul>
         </div>
     </div>
     <div class="flex justify-center items-center w-full">
-        <p class="text-white flex flex-col items-center justify-center text-sm">
-            <span>&copy; {{ 'now'|date('Y') }} Centro de formación profesional N° 61. Todos los derechos reservados.</span>
-            <span>Desarrollado por <a class="text-sky-400 underline" href="https://ferchudev.com" target="_blank">Fernando Pessoa</a></span>
+        <p class="text-gray-500 flex flex-col items-center justify-center">
+            <span class="text-[12px] md:text-sm flex flex-col md:flex-row justify-center items-center md:gap-2">
+							<span>&copy; {{ 'now'|date('Y') }} Centro de formación profesional N° 61.</span><span>Todos los derechos reservados.</span>
+						</span>
+            <span class="text-[12px] md:text-sm">Desarrollado por <a class="text-sky-400 underline" href="https://ferchudev.com" target="_blank">Fernando Pessoa</a></span>
         </p>
     </div>
 </footer>

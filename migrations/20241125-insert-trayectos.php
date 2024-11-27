@@ -2,7 +2,7 @@
 
 return function (mysqli $conn) {
     $name = 'SOLDADOR PROFESIONAL';
-    $description = 'El programa apunta a la inclusión educativa de doctrvenes y adolescentes de entre 16 y 18 años con
+    $description = 'El programa apunta a la inclusión educativa de jovenes y adolescentes de entre 16 y 18 años con
 Primario completo y que por distintas circunstancias han transitado trayectorias discontinuas en el 
 sistema educativo y/o se encuentran cursando ofertas de Formación Profesional, en este caso
 formación profesional en Soldador Básico.';
