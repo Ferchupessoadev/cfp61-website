@@ -1,37 +1,14 @@
 <?php
 
 use App\Controllers\CoursesController;
-use App\Controllers\DashboardController;
 use App\Controllers\HomeController;
-use App\Controllers\LoginController;
-use App\Controllers\MultimediaController;
 use Spyframe\lib\Route;
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/quienes-somos', [HomeController::class, 'info']);
-Route::get('/trayectos', [HomeController::class, 'trayectos']);
-Route::get('/contacto', [HomeController::class, 'contact']);
-Route::get('/preinscripcion', [HomeController::class, 'preinscription']);
+Route::get(uri: '/', callback: [HomeController::class, 'index']);
+Route::get(uri: '/quienes-somos', callback: [HomeController::class, 'info']);
+Route::get(uri: '/trayectos', callback: [HomeController::class, 'trayectos']);
+Route::get(uri: '/contacto', callback: [HomeController::class, 'contact']);
+Route::get(uri: '/preinscripcion', callback: [HomeController::class, 'preinscription']);
+Route::get(uri: '/trayectos/{name}', callback: [CoursesController::class, 'index']);
 
-// trayectos
-Route::get('/trayectos/{name}', [CoursesController::class, 'index']);
-
-// Routes for login
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout']);
-
-// Routes for admins
-Route::get('/admin', [DashboardController::class, 'index']);
-Route::get('/admin/multimedia', [DashboardController::class, 'multimedia']);
-Route::get('/admin/trayectos', [DashboardController::class, 'trayectos']);
-Route::post('/api/multimedia/upload', [MultimediaController::class, 'uploadMultimedia']);
-Route::post('/api/multimedia/delete', [MultimediaController::class, 'deleteMultimedia']);
-Route::get('/api/courses/', [CoursesController::class, 'getCourses']);
-// Route::get('/api/users/', [DashboardController::class, 'getUsers']);
-// Route::post('/api/courses/', [DashboardController::class, 'setCourse']);
-
-// Mail
-Route::post('/mail', [HomeController::class, 'mail']);
-
-Route::start();
+Route::post(uri: '/mail', callback: [HomeController::class, 'mail']);
