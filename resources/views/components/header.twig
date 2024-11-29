@@ -17,11 +17,10 @@
             {% endif %}
         </ul>
     </nav>
-		<button id="menu-btn" class="flex flex-col gap-2 justify-center items-center md:hidden outline-none focus:outline-none">
-			<!-- TODO: add animation -->
-			<div class="h-1 w-8 bg-white rounded"></div>
-			<div class="h-1 w-8 bg-white rounded"></div>
-			<div class="h-1 w-8 bg-white rounded"></div>
+		<button id="menu-btn" class="group flex flex-col gap-2 justify-center items-center md:hidden outline-none focus:outline-none">
+			<div class="transition-all origin-left duration-500 h-1 w-8 bg-white rounded"></div>
+			<div class="transition-all origin-left duration-500 h-1 w-8 bg-white rounded"></div>
+			<div class="transition-all origin-left duration-500 h-1 w-8 bg-white rounded"></div>
     </button>
 		<nav id="nav-responsive" class="transition-all duration-500 -translate-x-full w-full h-[calc(100vh-72px)] md:hidden flex flex-col justify-center items-center gap-10 text-white bg-[#222] bg-slate-900 fixed top-20 left-0 z-10">
 			<ul class="flex flex-col justify-center gap-10 w-full px-4">
@@ -41,5 +40,8 @@
 
 	menu.addEventListener('click', () => {
 		nav.classList.toggle('-translate-x-full');
+		menu.firstElementChild.nextElementSibling.classList.toggle('bg-transparent');
+		menu.firstElementChild.classList.toggle('rotate-[50deg]');
+		menu.lastElementChild.classList.toggle('-rotate-[50deg]');
 	});
 </script>
