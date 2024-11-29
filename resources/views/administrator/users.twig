@@ -1,0 +1,29 @@
+{% extends "layouts/admin.twig" %}
+
+{% block title %}
+	<title>CFP61 - Users</title>
+{% endblock %}
+
+{% block content %}
+	{% include "components/sidebar.twig" %}
+	<section class="w-[100%] bg-gray-100 min-h-screen flex flex-col px-4">
+		<h2 class="text-black text-3xl p-4">Usuarios</h2>
+		<table>
+			<tr>
+				<th class="border text-left border-gray-300">Nombre</th>
+				<th class="border text-left  border-gray-300">Correo</th>
+				<th class="border text-left  border-gray-300">Acciones</th>
+			</tr>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.username }}</td>
+					<td>{{ user.email }}</td>
+					<td>
+						<a href="/admin/users/{{ user.id }}/edit" class="text-blue-600 hover:text-blue-800 font-bold p-2">Editar</a>
+						<a href="/admin/users/{{ user.id }}/delete" class="text-red-600 hover:text-red-800 font-bold p-2">Eliminar</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</section>
+{% endblock %}

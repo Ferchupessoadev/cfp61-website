@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Middlewares\AuthMiddleware;
 use App\Models\CoursesModel;
+use App\Models\UserModel;
 
 class DashboardController extends Controller
 {
@@ -65,5 +66,47 @@ class DashboardController extends Controller
             'email' => getSession('email'),
         ],
             'courses' => $result]);
+    }
+
+    public function users(): string
+    {
+        $authMiddleware = new AuthMiddleware();
+        $result = $authMiddleware->handle();
+
+        if (!$result['success']) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+            return view('unauthorized', ['message' => 'que tamo haciendo, no estas autorizado para entrar Sharia', 'ip' => $ip]);
+        }
+
+        $usersModel = new UserModel();
+        $user = $usersModel->all();
+
+        return view('administrator.users', [
+            'logged' => $result,
+            'user' => [
+                'name' => getSession('username'),
+                'email' => getSession('email'),
+            ],
+            'users' => $user
+        ]);
+    }
+
+    public function sample(): string
+    {
+        $authMiddleware = new AuthMiddleware();
+        $result = $authMiddleware->handle();
+
+        if (!$result['success']) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+            return view('unauthorized', ['message' => 'que tamo haciendo, no estas autorizado para entrar Sharia', 'ip' => $ip]);
+        }
+
+        return view('administrator.sample', [
+            'logged' => $result,
+            'user' => [
+                'name' => getSession('username'),
+                'email' => getSession('email'),
+            ]
+        ]);
     }
 }
