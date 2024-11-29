@@ -3,7 +3,7 @@
 // Create customers table for the registration form
 return function ($conn) {
 	$sql = 'CREATE TABLE IF NOT EXISTS `customers` (
-	dni VARCHAR(255) NOT NULL PRIMARY KEY,
+	dni VARCHAR(120) NOT NULL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL,
 	phone VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
