@@ -19,7 +19,9 @@ class LoginController extends Controller
             $this->redirect('/admin');
         }
 
-        return view('login', ['logged' => false]);
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        return view('login', ['logged' => false, 'ip' => $ip]);
     }
 
     /**
